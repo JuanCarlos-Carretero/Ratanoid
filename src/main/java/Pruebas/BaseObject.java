@@ -8,6 +8,7 @@ import javafx.scene.Parent;
  * @author wing
  * @date 2012/7/26
  */
+
 public abstract class BaseObject extends Parent{
     protected DoubleProperty widthProperty = new SimpleDoubleProperty(0);
     protected DoubleProperty heightProperty = new SimpleDoubleProperty(0);
