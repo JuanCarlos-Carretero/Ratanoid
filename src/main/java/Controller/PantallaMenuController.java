@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PantallaMenuController implements Initializable {
+    private Ratanoid main;
 
     @FXML
     private ImageView fondo;
@@ -27,14 +28,27 @@ public class PantallaMenuController implements Initializable {
 
     }
 
-    public void startGame()  {
-
+    public void startGame() {
+        try {
+            main.startGame();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void skins(){
-
+    public void skins() {
+        try {
+            main.skins();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    public void exit(){
+
+    public void exit() {
         System.exit(0);
+    }
+
+    public void setMain(Ratanoid mainApp) {
+        this.main = mainApp;
     }
 }
