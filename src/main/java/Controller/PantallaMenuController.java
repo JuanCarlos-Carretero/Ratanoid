@@ -1,5 +1,6 @@
-package com.example.ratanoid;
+package Controller;
 
+import com.example.ratanoid.Ratanoid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +26,6 @@ public class PantallaMenuController implements Initializable {
         fondo.setImage(new Image(Ratanoid.class.getResource("drawable/PantallaMenu.png").toExternalForm()));
 
     }
-
 
     public void startGame()  {
 

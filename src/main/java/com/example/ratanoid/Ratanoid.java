@@ -1,5 +1,8 @@
 package com.example.ratanoid;
 
+import Controller.PantallaMenuController;
+import Controller.SkinMenuController;
+import Controller.StartGameController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,7 +24,7 @@ public class Ratanoid extends Application {
         launch();
     }
 
-    public void amigo(Stage stage) throws IOException {
+    public void startGame() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Ratanoid.class.getResource("startGame.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Ratanoid");
