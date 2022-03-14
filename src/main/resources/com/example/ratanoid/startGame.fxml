@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.canvas.Canvas?>
 <AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.StartGameController" prefHeight="400.0" prefWidth="600.0" >
     <children>
-        <Label fx:id="lblInfo" layoutX="14.0" layoutY="14.0" prefHeight="15.0" prefWidth="220.0" text="Test JavaFX Games" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
         <ImageView fx:id="imvBgd1" pickOnBounds="true" preserveRatio="true" />
         <Canvas fx:id="mainCanvas" />
     </children>

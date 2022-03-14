@@ -4,7 +4,7 @@ public class Jugador {
     int puntuacion;
     String apodo;
 
-    Jugador(String apodo, int puntuacion){
+    public Jugador(String apodo, int puntuacion){
         this.apodo = apodo;
         this.puntuacion = puntuacion;
     }

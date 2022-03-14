@@ -5,7 +5,6 @@ import javafx.scene.image.Image;
 public class Barra extends Sprite{
 
     Image image;
-    private double width, height;
 
     public Barra(Image image){
         super(image);
@@ -13,12 +12,6 @@ public class Barra extends Sprite{
         setX(250);
         setY(580);
     }
-
-/*    public void setImage(Image image) {
-        this.image = image;
-        width = this.image.getWidth();
-        height = this.image.getHeight();
-    }*/
 
     public void move(String direction) {
         switch (direction) {

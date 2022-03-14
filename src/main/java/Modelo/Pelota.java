@@ -63,7 +63,7 @@ public abstract class Pelota extends Sprite {
         ladrilloAEliminar.clear();
 
         if (Lvl1.barra.getBoundary().intersects(getBoundary())) {
-            dirX = (-1) * dirX;
+            /*dirX = (-1) * dirX;*/
             setX(getX() + velX);
             dirY = (-1) * dirY;
             setY(getY() + velY);
