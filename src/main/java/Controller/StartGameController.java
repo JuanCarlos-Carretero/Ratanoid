@@ -1,7 +1,10 @@
 package Controller;
 
+import Modelo.Barra;
+import Modelo.Ladrillo;
 import Modelo.Pelota;
 import Modelo.WindowsSetting;
+import Niveles.Lvl1;
 import com.example.ratanoid.Ratanoid;
 import javafx.animation.*;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -27,7 +30,8 @@ public class StartGameController implements Initializable {
     Ratanoid main;
     private Scene scene;
     private GraphicsContext gc;
-    private Pelota pilota;
+    private Lvl1 nivel;
+    private Ladrillo ladrillo;
     private Image fons;
 
     @FXML
