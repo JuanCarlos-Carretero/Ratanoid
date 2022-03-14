@@ -5,7 +5,8 @@ import Servidor.Jugador;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClienteRatanoid extends Thread {
 
@@ -17,9 +18,33 @@ public class ClienteRatanoid extends Thread {
     private ObjectOutputStream output;
     private ObjectInputStream input;
 
+    List<Jugador> jugadores = new ArrayList<>();
+    Jugador jugador;
+
+    String nombre;
+    int puntuacion;
+
+    /**
+     * Metodo constructor para crar la clase
+     * @param hostname  variable que nos dara acceso al servidor ("localhost")
+     * @param port  variable que nos dara acceso al servidor ("5557")
+     */
     public ClienteRatanoid(String hostname, int port) {
         this.hostname = hostname;
         this.port = port;
+    }
+
+    /**
+     * Este metodo es llamado para usar el tcp
+     * @param nombre    esta variable sera el nombre del jugador
+     * @param puntuacion    esta variable sera la puntuacion del jugador
+     */
+    public void LlamarServidor(String nombre, int puntuacion){
+        this.nombre = nombre;
+        this.puntuacion = puntuacion;
+        /*ClienteRatanoid clientObjLlista = new ClienteRatanoid("localhost", 5557);*/
+        ClienteRatanoid clientObjLlista = new ClienteRatanoid(hostname, port);
+        clientObjLlista.start();
     }
 
     @Override
@@ -33,19 +58,16 @@ public class ClienteRatanoid extends Thread {
             input = new ObjectInputStream(is);
 
             while (!acabat) {
-                Jugador jugador = new Jugador("joel", 100);
+                /*Jugador jugador = new Jugador("joel", 100);*/
+                jugador = new Jugador(nombre, puntuacion);
                 output.writeObject(jugador);
                 output.flush();
 
-                jugador = (Jugador) input.readObject();
-                printLlista(jugador);
+                jugadores = (List<Jugador>) input.readObject();
+                System.out.println(jugador.getApodo() + " " + jugador.getPuntuacion());
                 acabat = true;
             }
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -59,12 +81,8 @@ public class ClienteRatanoid extends Thread {
         }
     }
 
-    private void printLlista(Jugador jugador) {
-        System.out.println(jugador.getApodo() + " " + jugador.getPuntuacion());
-    }
-
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         ClienteRatanoid clientObjLlista = new ClienteRatanoid("localhost", 5557);
         clientObjLlista.start();
-    }
+    }*/
 }

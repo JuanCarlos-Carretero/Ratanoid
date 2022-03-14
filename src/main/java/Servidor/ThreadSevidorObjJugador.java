@@ -16,6 +16,7 @@ public class ThreadSevidorObjJugador implements Runnable{
 
     public ThreadSevidorObjJugador(Socket clientSocket) {
         this.clientSocket = clientSocket;
+        archivo = new Archivo();
         try {
             is = clientSocket.getInputStream();
             input = new ObjectInputStream(is);
@@ -29,16 +30,19 @@ public class ThreadSevidorObjJugador implements Runnable{
 
     @Override
     public void run() {
+        File file = new File("/home/jkarka/IdeaProjects/Ratanoid/src/main/java/Servidor/src/Score.csv");
         try {
             while (!acabat) {
-                //LLegim l'objecte LLista del stream input
-                Jugador llista = (Jugador) input.readObject();
+                //LLegim l'objecte Jugador del stream input
+                Jugador jugador = (Jugador) input.readObject();
 
-                //ordenem la llista i eliminem duplicats
-                printLlista(llista);
+                //comprobamos lo que recibe el servidor
+                System.out.println(jugador.apodo + " " + jugador.puntuacion);
+
+                archivo.Escribir(jugador, file);
 
                 //tornem la llista al client per l'output
-                output.writeObject(llista);
+                output.writeObject(archivo.Leer(file));
                 output.flush();
 
                 acabat = true;
@@ -57,9 +61,5 @@ public class ThreadSevidorObjJugador implements Runnable{
         }
 
 
-    }
-
-    private void printLlista(Jugador llista) {
-        System.out.println(llista.apodo + " " + llista.puntuacion);
     }
 }
