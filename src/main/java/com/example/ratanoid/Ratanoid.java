@@ -39,8 +39,9 @@ public class Ratanoid extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Ratanoid.class.getResource("startGame.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         StartGameController controllerStart = fxmlLoader.getController();
-        controllerStart.setMain(this);
         primaryStage.setScene(scene);
+        controllerStart.setScene(scene);
+        controllerStart.setMain(this);
         primaryStage.show();
     }
 

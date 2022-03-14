@@ -1,20 +1,21 @@
 package Modelo;
 
-import javafx.fxml.FXML;
-import javafx.scene.canvas.GraphicsContext;
+import Niveles.Lvl1;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Pelota extends Sprite {
+public abstract class Pelota extends Sprite {
     private Image image;
     private double velX, velY;
     private int dirX, dirY;
+    List<Ladrillo> ladrilloAEliminar = new ArrayList<>();
 
     public Pelota(Image image) {
         super(image);
         setX(Math.random() * WindowsSetting.WIDTH);
-        setY(Math.random() * WindowsSetting.HEIGHT);
+        setY(350);
         this.velX = 1.0f;
         this.velY = 1.0f;
         this.dirX = 1;
@@ -26,53 +27,46 @@ public class Pelota extends Sprite {
      * En aquest exemple només cal generalitzar les mides per on es
      * pot moure.
      */
-    @Override
     public void move() {
-        if(dirX == 1) {
+
+        //Paredes
+        if (dirX == 1) {
             setX(getX() + velX);
-            if(getX() >= WindowsSetting.WIDTH - getWidth()) dirX = (-1)*dirX;
-        }else {
+            if (getX() >= WindowsSetting.WIDTH - getWidth()) dirX = (-1) * dirX;
+        } else {
             setX(getX() - velX);
-            if(getX() <= 0) dirX = (-1)*dirX;
+            if (getX() <= 0) dirX = (-1) * dirX;
         }
-        if(dirY == 1){
+        if (dirY == 1) {
             setY(getY() + velY);
-            if(getY() >= WindowsSetting.HEIGHT - getHeight()) dirY = (-1)*dirY;
-        }
-        else {
+            if (getY() >= WindowsSetting.HEIGHT - getHeight()) dirY = (-1) * dirY;
+        } else {
             setY(getY() - velY);
-            if(getY() <= 0) dirY = (-1)*dirY;
-        }
-    }
-
-    public void changeDir() {
-        double t = Math.random();
-        if(0.33 > t) dirX = dirX*(-1);
-        if(0.33 < t && 0.66 > t) dirY = dirY*(-1);
-        if(0.66 < t) {
-            dirY = dirY*(-1);
-            dirX = dirX*(-1);
+            if (getY() <= 0) dirY = (-1) * dirY;
         }
 
-    }
+        //Ladrillos
+        for (Ladrillo ladrillo : Lvl1.ladrillos) {
+            if (ladrillo.getBoundary().intersects(getBoundary())) {
+                setX(getX() + velX);
+                setY(getY() + velY);
+                dirY = (-1) * dirY;
+                /*System.out.println("intersecepta");
+                System.out.println("ladrillo: "+ ladrillo.getX()+ " " + ladrillo.getY() + "\n" + getX() + " " + getY());*/
+                ladrillo.clear(Lvl1.gc);
+                ladrilloAEliminar.add(ladrillo);
+            }
+        }
+        for (Ladrillo ladrillo : ladrilloAEliminar) {
+            Lvl1.ladrillos.remove(ladrillo);
+        }
+        ladrilloAEliminar.clear();
 
-    public void setDirection(String direction) {
-        switch (direction) {
-            case "RIGHT":
-                dirX = 1;
-                break;
-            case "LEFT":
-                dirX = -1;
-                break;
-            case "DOWN":
-                dirY = 1;
-                break;
-            case "UP":
-                dirY = -1;
-                break;
+        if (Lvl1.barra.getBoundary().intersects(getBoundary())) {
+            dirX = (-1) * dirX;
+            setX(getX() + velX);
+            dirY = (-1) * dirY;
+            setY(getY() + velY);
         }
     }
-
-
-
 }

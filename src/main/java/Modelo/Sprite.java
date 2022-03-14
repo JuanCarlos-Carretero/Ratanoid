@@ -1,6 +1,5 @@
 package Modelo;
 
-import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -34,10 +33,10 @@ public abstract class Sprite {
         return height;
     }
 
-    private void setImage(Image image) {
+    public void setImage(Image image) {
         this.image = image;
-        width = image.getWidth();
-        height = image.getHeight();
+        width = this.image.getWidth();
+        height = this.image.getHeight();
     }
 
     public void render(GraphicsContext gc) {
