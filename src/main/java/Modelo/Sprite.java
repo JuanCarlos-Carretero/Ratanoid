@@ -8,8 +8,6 @@ public abstract class Sprite {
     private Image image;
     private double width, height, posX, posY;
 
-    public abstract void move();
-
     public Sprite(Image image) {
         setImage(image);
     }
@@ -51,8 +49,5 @@ public abstract class Sprite {
         return new Rectangle2D(posX,posY,width,height);
     }
 
-    public boolean isClicked(Point2D p) {
-        if(getBoundary().contains(p)) return true;
-        else return false;
-    }
+    public abstract void move(String toString);
 }
