@@ -28,14 +28,16 @@ public class Lvl1 {
     public static GraphicsContext gc;
     Scene scene;
     public static boolean start;
-    int vidas;
+    public static int vidas;
+    public static boolean gameover;
 
     public Lvl1(GraphicsContext gc, Scene scene) {
         this.gc = gc;
         this.scene = scene;
+        gameover = false;
         start = false;
 
-       for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 2; i++) {
             for (int j = 1; j <= 10; j++) {
                 image = new Image((Ratanoid.class.getResource("drawable/ladrillorojo.png").toExternalForm()));
                 ladrillos.add(new Ladrillo(image, j * 42, i * 75) {
@@ -46,17 +48,17 @@ public class Lvl1 {
                 gc.drawImage(image, j * 42, i * 75);
             }
         }
+
         imageBarra = new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm());
         barra = new Barra(imageBarra);
         barra.render(gc);
 
-        pilota = new Pelota(barra.getX(),new Image(Ratanoid.class.getResource("drawable/bb.png").toExternalForm())) {
+        pilota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bb.png").toExternalForm())) {
             @Override
             public void move(String toString) {
 
             }
         };
-
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -64,17 +66,12 @@ public class Lvl1 {
                 barra.clear(gc);
                 barra.move(keyEvent.getCode().toString());
                 barra.render(gc);
-                if (keyEvent.getCode().toString().equals("SPACE")){
+                if (keyEvent.getCode().toString().equals("SPACE")) {
                     start = true;
                 }
-                //System.out.println(keyEvent.getCode().toString());
             }
         });
 
-        // Opció 1
-        //animationTimer.start();
-
-        // Opció 2
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
@@ -84,22 +81,20 @@ public class Lvl1 {
      * Controlem la velocitat de refresc amb KeyFrame.
      * Aquesta opció és molt més flexible que l'AnimationTimer
      */
-    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0057), new EventHandler<ActionEvent>(){
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0057), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
             pilota.clear(gc);
             pilota.move();
-            for (Ladrillo ladrillo: ladrillos) {
-                if(ladrillo.getBoundary().intersects(pilota.getBoundary())) {
+            for (Ladrillo ladrillo : ladrillos) {
+                if (ladrillo.getBoundary().intersects(pilota.getBoundary())) {
                     ladrillo.clear(gc);
                 }
             }
             pilota.render(gc);
 
-
             if (pilota.getBoundary().intersects(Lvl1.barra.getBoundary())) {
                 pilota.setDirY(pilota.getDirY() * (-1));
-                //pilota.setDirX(pilota.getDirX() * (-1));
             }
         }
     })

@@ -7,33 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pelota extends Sprite {
-    private Image image;
-
-    public double getVelX() {
-        return velX;
-    }
-
-    public void setVelX(double velX) {
-        this.velX = velX;
-    }
-
-    public double getVelY() {
-        return velY;
-    }
-
-    public void setVelY(double velY) {
-        this.velY = velY;
-    }
 
     private double velX, velY;
-
-    public int getDirX() {
-        return dirX;
-    }
-
-    public void setDirX(int dirX) {
-        this.dirX = dirX;
-    }
 
     public int getDirY() {
         return dirY;
@@ -63,7 +38,7 @@ public abstract class Pelota extends Sprite {
      */
     public void move() {
 
-        if (Lvl1.start){
+        if (Lvl1.start) {
             //Paredes
             if (dirX == 1) {
                 setX(getX() + velX);
@@ -74,7 +49,19 @@ public abstract class Pelota extends Sprite {
             }
             if (dirY == 1) {
                 setY(getY() + velY);
-                //if (getY() >= WindowsSetting.HEIGHT - getHeight()) dirY = (-1) * dirY;
+                if (getY() >= 600) {
+
+                    Lvl1.vidas--;
+
+                    setX(240);
+                    setY(563);
+
+                    Lvl1.start = false;
+
+                    if (Lvl1.vidas == 0) {
+                        Lvl1.gameover = true;
+                    }
+                }
             } else {
                 setY(getY() - velY);
                 if (getY() <= 0) dirY = (-1) * dirY;
@@ -86,8 +73,6 @@ public abstract class Pelota extends Sprite {
                     setX(getX() + velX);
                     setY(getY() + velY);
                     dirY = (-1) * dirY;
-                /*System.out.println("intersecepta");
-                System.out.println("ladrillo: "+ ladrillo.getX()+ " " + ladrillo.getY() + "\n" + getX() + " " + getY());*/
                     ladrillo.clear(Lvl1.gc);
                     ladrilloAEliminar.add(ladrillo);
                 }
@@ -96,9 +81,6 @@ public abstract class Pelota extends Sprite {
                 Lvl1.ladrillos.remove(ladrillo);
             }
             ladrilloAEliminar.clear();
-
         }
-
-
     }
 }

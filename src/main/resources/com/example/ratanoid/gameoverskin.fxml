@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartGameController">
+    <children>
+        <ImageView fx:id="imvBgd1" pickOnBounds="true" preserveRatio="true" />
+        <Canvas fx:id="mainCanvas" />
+    </children>
+</AnchorPane>
