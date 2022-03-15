@@ -21,7 +21,7 @@ public abstract class Pelota extends Sprite {
     private int dirX, dirY;
     List<Ladrillo> ladrilloAEliminar = new ArrayList<>();
 
-    public Pelota(double x, Image image) {
+    public Pelota(Image image) {
         super(image);
         setX(240);
         setY(563);
