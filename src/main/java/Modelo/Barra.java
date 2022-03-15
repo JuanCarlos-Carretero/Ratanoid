@@ -9,7 +9,7 @@ public class Barra extends Sprite{
     public Barra(Image image){
         super(image);
         this.image = image;
-        setX(250);
+        setX(210);
         setY(580);
     }
 

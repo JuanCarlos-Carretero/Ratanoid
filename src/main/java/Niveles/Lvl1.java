@@ -27,10 +27,13 @@ public class Lvl1 {
     Pelota pilota;
     public static GraphicsContext gc;
     Scene scene;
+    public static boolean start;
+    int vidas;
 
     public Lvl1(GraphicsContext gc, Scene scene) {
         this.gc = gc;
         this.scene = scene;
+        start = false;
 
        for (int i = 1; i <= 2; i++) {
             for (int j = 1; j <= 10; j++) {
@@ -43,16 +46,17 @@ public class Lvl1 {
                 gc.drawImage(image, j * 42, i * 75);
             }
         }
+        imageBarra = new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm());
+        barra = new Barra(imageBarra);
+        barra.render(gc);
 
-        pilota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bb.png").toExternalForm())) {
+        pilota = new Pelota(barra.getX(),new Image(Ratanoid.class.getResource("drawable/bb.png").toExternalForm())) {
             @Override
             public void move(String toString) {
 
             }
         };
 
-        imageBarra = new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm());
-        barra = new Barra(imageBarra);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -60,7 +64,10 @@ public class Lvl1 {
                 barra.clear(gc);
                 barra.move(keyEvent.getCode().toString());
                 barra.render(gc);
-                System.out.println(keyEvent.getCode().toString());
+                if (keyEvent.getCode().toString().equals("SPACE")){
+                    start = true;
+                }
+                //System.out.println(keyEvent.getCode().toString());
             }
         });
 
@@ -88,6 +95,12 @@ public class Lvl1 {
                 }
             }
             pilota.render(gc);
+
+
+            if (pilota.getBoundary().intersects(Lvl1.barra.getBoundary())) {
+                pilota.setDirY(pilota.getDirY() * (-1));
+                //pilota.setDirX(pilota.getDirX() * (-1));
+            }
         }
     })
     );

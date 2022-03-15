@@ -52,5 +52,6 @@ public class Ratanoid extends Application {
         controllerSkin.setMain(this);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 }
