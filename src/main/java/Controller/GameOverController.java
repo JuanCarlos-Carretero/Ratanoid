@@ -10,9 +10,9 @@ public class GameOverController {
 
     private Ratanoid main;
 
-    @FXML
-    ImageView imvBgd1;
+    public GameOverController(){
 
+    }
 
     public void exit() {
         System.exit(0);

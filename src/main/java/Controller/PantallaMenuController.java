@@ -31,6 +31,7 @@ public class PantallaMenuController implements Initializable {
     public void startGame() {
         try {
             main.startGame();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

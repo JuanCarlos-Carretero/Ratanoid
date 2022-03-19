@@ -5,6 +5,7 @@ import Modelo.Barra;
 import Modelo.Ladrillo;
 
 import Modelo.Pelota;
+import Modelo.Pelotas;
 import com.example.ratanoid.Ratanoid;
 
 import javafx.animation.KeyFrame;
@@ -20,6 +21,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +35,11 @@ public class Lvl1 {
     Scene scene;
     public static boolean start;
     public static int vidas;
-    public static boolean gameover;
     Ratanoid main;
 
     public Lvl1(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida, Ratanoid main) {
         this.gc = gc;
         this.scene = scene;
-        gameover = false;
         start = false;
         vidas = 3;
         this.main = main;
@@ -110,4 +110,6 @@ public class Lvl1 {
         }
     })
     );
+
+
 }
