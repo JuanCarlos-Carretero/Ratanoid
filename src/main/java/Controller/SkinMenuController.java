@@ -26,9 +26,9 @@ public class SkinMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        fondo.setImage(new Image(Objects.requireNonNull(Ratanoid.class.getResource("drawable/PantallaMenu.png")).toExternalForm()));
-        elegirBarra.setImage(new Image(Objects.requireNonNull(Ratanoid.class.getResource("drawable/barraBuena.png")).toExternalForm()));
-        elegirBola.setImage(new Image(Objects.requireNonNull(Ratanoid.class.getResource("drawable/bolablanca.png")).toExternalForm()));
+        fondo.setImage(new Image(Ratanoid.class.getResource("drawable/PantallaMenu.png").toExternalForm()));
+        elegirBarra.setImage(new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm()));
+        elegirBola.setImage(new Image(Ratanoid.class.getResource("drawable/bolablanca.png").toExternalForm()));
 
     }
 
