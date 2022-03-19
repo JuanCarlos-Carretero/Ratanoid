@@ -1,5 +1,6 @@
 package Controller;
 
+import Modelo.Sprite;
 import Modelo.WindowsSetting;
 import Niveles.Lvl1;
 import com.example.ratanoid.Ratanoid;
@@ -15,8 +16,7 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class
-StartGameController implements Initializable {
+public class StartGameController implements Initializable {
 
     Ratanoid main;
     private Scene scene;
@@ -52,6 +52,7 @@ StartGameController implements Initializable {
 
         fons = new Image(Ratanoid.class.getResource("drawable/PantallaJuego.png").toExternalForm());
         imvBgd1.setImage(fons);
+
 
         mainCanvas.setHeight(WindowsSetting.HEIGHT);
         mainCanvas.setWidth(WindowsSetting.WIDTH);
