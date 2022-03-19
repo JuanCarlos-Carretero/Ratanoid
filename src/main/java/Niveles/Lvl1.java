@@ -30,7 +30,8 @@ public class Lvl1 {
     Image image;
     Image imageBarra;
     public static Barra barra;
-    Pelota pilota;
+    public static Pelotas pelotas;
+    Pelota pelota;
     public static GraphicsContext gc;
     Scene scene;
     public static boolean start;
@@ -43,6 +44,7 @@ public class Lvl1 {
         start = false;
         vidas = 3;
         this.main = main;
+        pelotas = new Pelotas();
 
         for (int i = 1; i <= 2; i++) {
             for (int j = 1; j <= 10; j++) {
@@ -56,20 +58,30 @@ public class Lvl1 {
             }
         }
 
-        imageBarra = new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm());
-        barra = new Barra(imageBarra);
-        barra.render(gc);
+        if (barra == null){
+            imageBarra = new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm());
+            barra = new Barra(imageBarra);
+            barra.render(gc);
+        }
 
-        pilota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bolablanca.png").toExternalForm())) {
-            @Override
-            public void move(String toString) {
+        if (pelota == null){
+            pelota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bolablanca.png").toExternalForm())) {
+                @Override
+                public void move(String toString) {
 
+                }
+            };
+            pelotas.getPelotas().add(pelota);
+
+            for (Pelota pelota : pelotas.getPelotas()) {
+                pelota.setGc(gc);
             }
-        };
-        pilota.setScore(scoreText);
-        pilota.setVida(vida);
-        pilota.setMain(main);
-        pilota.setGc(gc);
+        }
+
+        pelota.setScore(scoreText);
+        pelota.setVida(vida);
+        pelota.setMain(main);
+
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -95,18 +107,26 @@ public class Lvl1 {
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.0057), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            pilota.clear(gc);
-            pilota.move();
+            pelota.clear(gc);
+            pelota.move();
             for (Ladrillo ladrillo : ladrillos) {
-                if (ladrillo.getBoundary().intersects(pilota.getBoundary())) {
+                if (ladrillo.getBoundary().intersects(pelota.getBoundary())) {
                     ladrillo.clear(gc);
                 }
             }
-            pilota.render(gc);
+            pelota.render(gc);
 
-            if (pilota.getBoundary().intersects(Lvl1.barra.getBoundary())) {
-                pilota.setDirY(pilota.getDirY() * (-1));
+            if (pelota.getBoundary().intersects(Lvl1.barra.getBoundary())) {
+                pelota.setDirY(pelota.getDirY() * (-1));
             }
+
+//            if(pelota.gameOver){
+//                try {
+//                    main.gameOver();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
         }
     })
     );

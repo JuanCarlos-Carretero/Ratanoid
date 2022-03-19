@@ -31,6 +31,7 @@ public abstract class Pelota extends Sprite {
     int punto = 0;
     Ratanoid main;
     GraphicsContext gc;
+    public boolean gameOver;
 
     private int dirX, dirY;
     List<Ladrillo> ladrilloAEliminar = new ArrayList<>();
@@ -43,6 +44,7 @@ public abstract class Pelota extends Sprite {
         this.velY = 1.0f;
         this.dirX = 1;
         this.dirY = 1;
+        gameOver = false;
     }
 
     /**
@@ -64,8 +66,6 @@ public abstract class Pelota extends Sprite {
             if (dirY == 1) {
                 setY(getY() + velY);
                 if (getY() >= 600) {
-
-                    if (!Lvl1.gameover) {
                         Lvl1.vidas--;
                         setVida(vidas);
 
@@ -77,7 +77,6 @@ public abstract class Pelota extends Sprite {
                         Lvl1.barra.render(Lvl1.gc);
 
                         Lvl1.start = false;
-                    }
 
                 }
             } else {
@@ -125,12 +124,13 @@ public abstract class Pelota extends Sprite {
                 vidas.setImage(new Image(Ratanoid.class.getResource("drawable/1vidas.png").toExternalForm()));
                 break;
             case 0:
+                //gameOver = true;
                 try {
                     main.gameOver();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                break;
+            break;
         }
     }
     public void setMain(Ratanoid main){

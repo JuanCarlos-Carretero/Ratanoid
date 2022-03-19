@@ -43,7 +43,6 @@ public class StartGameController implements Initializable {
         fons = new Image(Ratanoid.class.getResource("drawable/PantallaJuego.png").toExternalForm());
         imvBgd1.setImage(fons);
 
-
         mainCanvas.setHeight(WindowsSetting.HEIGHT);
         mainCanvas.setWidth(WindowsSetting.WIDTH);
     }

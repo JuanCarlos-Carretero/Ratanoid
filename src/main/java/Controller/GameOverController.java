@@ -1,14 +1,18 @@
 package Controller;
 
+import Modelo.Pelota;
+import Modelo.Pelotas;
+import Niveles.Lvl1;
 import com.example.ratanoid.Ratanoid;
-import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameOverController {
 
     private Ratanoid main;
+    List<Pelota> pelotasABorrar = new ArrayList<>();
 
     public GameOverController(){
 
@@ -20,7 +24,15 @@ public class GameOverController {
 
     public void returnMenu(){
         try {
-            main.pantallaMenu();
+           /* for (Pelota pelota: Lvl1.pelotas.getPelotas()){
+                pelotasABorrar.add(pelota);
+            }
+            for (Pelota pelota: pelotasABorrar){
+                Lvl1.pelotas.getPelotas().remove(pelota);
+            }*/
+            //main.pantallaMenu(new PantallaMenuController());
+            //Lvl1.start(new StartGameController());
+            main.restart();
         } catch (IOException e) {
             e.printStackTrace();
         }
