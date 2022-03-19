@@ -9,22 +9,25 @@
         <ImageView fx:id="imvBgd1" fitHeight="666.0" fitWidth="652.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@drawable/PantallaJuego5.png" />
-         </image></ImageView>
+         </image>
+        </ImageView>
         <Canvas fx:id="mainCanvas" />
       <ImageView fx:id="imvBgd11" fitHeight="90.0" fitWidth="180.0" layoutX="160.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@drawable/GameOver.png" />
-         </image></ImageView>
+         </image>
+      </ImageView>
       <ImageView fx:id="imvBgd111" fitHeight="90.0" fitWidth="180.0" layoutX="160.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@drawable/HighScore.png" />
-         </image></ImageView>
-      <ImageView fx:id="imvBgd1111" fitHeight="90.0" fitWidth="180.0" layoutX="14.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+      </ImageView>
+      <ImageView fx:id="imvBgd1111" fitHeight="90.0" fitWidth="180.0" layoutX="14.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#exit">
          <image>
             <Image url="@drawable/exit.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imvBgd11111" fitHeight="90.0" fitWidth="180.0" layoutX="306.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imvBgd11111" fitHeight="90.0" fitWidth="180.0" layoutX="306.0" layoutY="496.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#returnMenu">
          <image>
             <Image url="@drawable/return.png" />
          </image>

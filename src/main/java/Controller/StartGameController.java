@@ -30,14 +30,6 @@ public class StartGameController implements Initializable {
     @FXML
     Canvas mainCanvas;
 
-    static int punto;
-
-
-    public static void getScoreText(int puntos) {
-        punto = puntos;
-    }
-
-
     @FXML
     public ImageView vidas;
 

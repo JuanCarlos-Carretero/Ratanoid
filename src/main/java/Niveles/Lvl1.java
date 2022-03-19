@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class Lvl1 {
     public static boolean start;
     public static int vidas;
     public static boolean gameover;
+    Ratanoid main;
 
     public Lvl1(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida, Ratanoid main) {
         this.gc = gc;
@@ -40,10 +42,11 @@ public class Lvl1 {
         gameover = false;
         start = false;
         vidas = 3;
+        this.main = main;
 
         for (int i = 1; i <= 2; i++) {
             for (int j = 1; j <= 10; j++) {
-                image = new Image((Ratanoid.class.getResource("drawable/ladrillorojo.png").toExternalForm()));
+                image = new Image(Ratanoid.class.getResource("drawable/ladrillo.png").toExternalForm());
                 ladrillos.add(new Ladrillo(image, j * 42, i * 75) {
                     @Override
                     public void move(String toString) {
@@ -65,6 +68,8 @@ public class Lvl1 {
         };
         pilota.setScore(scoreText);
         pilota.setVida(vida);
+        pilota.setMain(main);
+        pilota.setGc(gc);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override

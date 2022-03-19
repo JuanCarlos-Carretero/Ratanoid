@@ -17,7 +17,6 @@ import java.util.List;
 public abstract class Pelota extends Sprite {
 
     private double velX, velY;
-
     Label scoreText;
     ImageView vidas;
 
@@ -30,6 +29,8 @@ public abstract class Pelota extends Sprite {
     }
 
     int punto = 0;
+    Ratanoid main;
+    GraphicsContext gc;
 
     private int dirX, dirY;
     List<Ladrillo> ladrilloAEliminar = new ArrayList<>();
@@ -124,8 +125,18 @@ public abstract class Pelota extends Sprite {
                 vidas.setImage(new Image(Ratanoid.class.getResource("drawable/1vidas.png").toExternalForm()));
                 break;
             case 0:
-                Lvl1.gameover = true;
+                try {
+                    main.gameOver();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
+    }
+    public void setMain(Ratanoid main){
+        this.main = main;
+    }
+    public void setGc(GraphicsContext gc){
+        this.gc = gc;
     }
 }
