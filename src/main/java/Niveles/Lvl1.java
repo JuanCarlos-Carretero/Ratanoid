@@ -13,7 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
@@ -24,6 +26,7 @@ public class Lvl1 {
     static public List<Ladrillo> ladrillos = new ArrayList<>();
     Image image;
     Image imageBarra;
+
     public static Barra barra;
     Pelota pilota;
     public static GraphicsContext gc;
@@ -37,6 +40,7 @@ public class Lvl1 {
         this.scene = scene;
         gameover = false;
         start = false;
+        vidas = 3;
 
         for (int i = 1; i <= 2; i++) {
             for (int j = 1; j <= 10; j++) {

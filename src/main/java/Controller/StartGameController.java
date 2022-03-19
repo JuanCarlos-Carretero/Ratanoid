@@ -60,7 +60,10 @@ StartGameController implements Initializable {
     public void setScene(Scene sc) {
         scene = sc;
         gc = mainCanvas.getGraphicsContext2D();
-        nivel = new Lvl1(gc, scene);
+        nivel = new Lvl1(gc, scene, scoreText, vidas);
+
+//        vidas.setImage(new Image(Ratanoid.class.getResource("drawable/3vidas.png").toExternalForm()));
+
     }
 
     public void setMain(Ratanoid mainApp) {
