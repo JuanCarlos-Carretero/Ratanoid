@@ -30,6 +30,7 @@ public class SkinMenuController implements Initializable {
         elegirBarra.setImage(new Image(Ratanoid.class.getResource("drawable/barraBuena.png").toExternalForm()));
         elegirBola.setImage(new Image(Ratanoid.class.getResource("drawable/bolablanca.png").toExternalForm()));
 
+
     }
 
     public void volver() {
