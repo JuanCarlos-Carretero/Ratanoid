@@ -5,6 +5,7 @@ import Modelo.WindowsSetting;
 import Niveles.Lvl1;
 import com.example.ratanoid.Ratanoid;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

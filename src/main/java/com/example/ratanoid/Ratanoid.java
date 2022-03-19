@@ -55,12 +55,17 @@ public class Ratanoid extends Application {
         primaryStage.show();
     }
 
-    public void gameOver() throws IOException{
+    public void gameOver() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Ratanoid.class.getResource("GameOver.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         GameOverController controllerGameOver = fxmlLoader.getController();
         controllerGameOver.setMain(this);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public void restart() throws IOException{
+        primaryStage.close();
+        startGame();
     }
 }

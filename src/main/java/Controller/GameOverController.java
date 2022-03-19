@@ -11,6 +11,7 @@ import java.util.List;
 
 public class GameOverController {
 
+
     private Ratanoid main;
     List<Pelota> pelotasABorrar = new ArrayList<>();
 
@@ -41,5 +42,4 @@ public class GameOverController {
     public void setMain(Ratanoid mainApp) {
         this.main = mainApp;
     }
-
 }
