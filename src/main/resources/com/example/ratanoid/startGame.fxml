@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.canvas.Canvas?>
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="Controller.StartGameController" prefHeight="400.0" prefWidth="600.0" >
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartGameController">
     <children>
         <ImageView fx:id="imvBgd1" pickOnBounds="true" preserveRatio="true" />
         <Canvas fx:id="mainCanvas" />
+      <ImageView fx:id="vidas" fitHeight="40.0" fitWidth="140.0" layoutX="346.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="scoreText" layoutX="14.0" layoutY="14.0" prefHeight="65.0" prefWidth="266.0" />
     </children>
 </AnchorPane>

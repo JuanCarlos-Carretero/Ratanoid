@@ -21,6 +21,18 @@ public class Barra extends Sprite{
             case "LEFT":
                 setX(getX() - 10);
                 break;
+            case "D":
+                setX(getX() + 10);
+                break;
+            case "A":
+                setX(getX() - 10);
+                break;
+            case "4":
+                setX(getX() + 10);
+                break;
+            case "6":
+                setX(getX() - 10);
+                break;
         }
         if (getX() >= 500 - image.getWidth() ){
             setX(getX()-10);

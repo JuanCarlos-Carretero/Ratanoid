@@ -1,5 +1,6 @@
 package Niveles;
 
+import Controller.StartGameController;
 import Modelo.Barra;
 import Modelo.Ladrillo;
 
@@ -31,7 +32,7 @@ public class Lvl1 {
     public static int vidas;
     public static boolean gameover;
 
-    public Lvl1(GraphicsContext gc, Scene scene) {
+    public Lvl1(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida) {
         this.gc = gc;
         this.scene = scene;
         gameover = false;
@@ -59,6 +60,8 @@ public class Lvl1 {
 
             }
         };
+        pilota.setScore(scoreText);
+        pilota.setVida(vida);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override

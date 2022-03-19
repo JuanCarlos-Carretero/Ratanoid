@@ -8,7 +8,6 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SkinMenuController implements Initializable {
