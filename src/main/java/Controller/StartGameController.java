@@ -41,8 +41,6 @@ public class StartGameController implements Initializable {
     @FXML
     public ImageView vidas;
 
-    public int heal;
-
     @FXML
     Label scoreText;
 
@@ -61,10 +59,7 @@ public class StartGameController implements Initializable {
     public void setScene(Scene sc) {
         scene = sc;
         gc = mainCanvas.getGraphicsContext2D();
-        nivel = new Lvl1(gc, scene, scoreText, vidas);
-
-//        vidas.setImage(new Image(Ratanoid.class.getResource("drawable/3vidas.png").toExternalForm()));
-
+        nivel = new Lvl1(gc, scene, scoreText, vidas, main);
     }
 
     public void setMain(Ratanoid mainApp) {

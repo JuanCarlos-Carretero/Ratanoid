@@ -1,5 +1,6 @@
 package com.example.ratanoid;
 
+import Controller.GameOverController;
 import Controller.PantallaMenuController;
 import Controller.SkinMenuController;
 import Controller.StartGameController;

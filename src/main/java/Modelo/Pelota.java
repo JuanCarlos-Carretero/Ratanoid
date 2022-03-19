@@ -3,12 +3,14 @@ package Modelo;
 import Controller.StartGameController;
 import Niveles.Lvl1;
 import com.example.ratanoid.Ratanoid;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

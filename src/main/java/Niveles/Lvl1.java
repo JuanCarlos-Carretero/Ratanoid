@@ -26,7 +26,6 @@ public class Lvl1 {
     static public List<Ladrillo> ladrillos = new ArrayList<>();
     Image image;
     Image imageBarra;
-
     public static Barra barra;
     Pelota pilota;
     public static GraphicsContext gc;
@@ -35,7 +34,7 @@ public class Lvl1 {
     public static int vidas;
     public static boolean gameover;
 
-    public Lvl1(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida) {
+    public Lvl1(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida, Ratanoid main) {
         this.gc = gc;
         this.scene = scene;
         gameover = false;
@@ -58,7 +57,7 @@ public class Lvl1 {
         barra = new Barra(imageBarra);
         barra.render(gc);
 
-        pilota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bb.png").toExternalForm())) {
+        pilota = new Pelota(new Image(Ratanoid.class.getResource("drawable/bolablanca.png").toExternalForm())) {
             @Override
             public void move(String toString) {
 
