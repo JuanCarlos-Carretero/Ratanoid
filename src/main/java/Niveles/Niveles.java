@@ -541,6 +541,7 @@ public class Niveles {
             //Si ya no hay ladrillos en el lvl3 pon pantalla win
             if (ladrillosLvl3.size() == 0){
                 if(lvlEjecutado == 3){
+                    timeline.stop();
                     try {
                         main.gameOver();
                     } catch (IOException e) {
