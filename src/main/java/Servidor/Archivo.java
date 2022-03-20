@@ -23,7 +23,7 @@ public class Archivo {
         List<String[]> data = new ArrayList<>();
 
         for (Jugador jugador:jugadores) {
-                data.add(new String[] {jugador.getApodo(),String.valueOf(jugador.getPuntuacion())});
+                data.add(new String[] { jugador.getApodo(),String.valueOf(jugador.getPuntuacion()) });
         }
 
         try {

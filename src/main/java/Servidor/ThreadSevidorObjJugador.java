@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ThreadSevidorObjJugador implements Runnable{
 
+    private Socket socket;
     private OutputStream os;
     private ObjectOutputStream output;
     private InputStream is;
@@ -18,7 +19,7 @@ public class ThreadSevidorObjJugador implements Runnable{
 
 
     public ThreadSevidorObjJugador(Socket clientSocket) {
-
+        this.socket = clientSocket;
         archivo = new Archivo();
         try {
             is = clientSocket.getInputStream();
