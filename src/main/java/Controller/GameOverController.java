@@ -7,10 +7,15 @@ import com.example.ratanoid.Ratanoid;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +35,10 @@ public class GameOverController implements Initializable {
     int cont;
 
     public GameOverController(){
+    }
 
+    public void returnButton() throws IOException {
+        main.pantallaMenu();
     }
 
     public void exit() {

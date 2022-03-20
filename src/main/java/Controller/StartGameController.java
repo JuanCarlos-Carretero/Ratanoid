@@ -36,10 +36,7 @@ public class StartGameController implements Initializable {
     public ImageView vidas;
 
     @FXML
-    Label scoreText;
-
-    @FXML
-    Label lvlText;
+    Label scoreText, lvlText;
 
     private Image barra,pelota;
 

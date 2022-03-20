@@ -47,8 +47,8 @@ public class Niveles {
     Label scoreText;
     Label lvlText;
 
-    ImageView vida;
-    Ratanoid main;
+    public static ImageView vidaImage;
+    public static Ratanoid main;
 
     int lvlEjecutado;
 
@@ -56,7 +56,6 @@ public class Niveles {
     int random;
 
     ImageView fondo;
-
 
     public Niveles(GraphicsContext gc, Scene scene, Label scoreText, ImageView vida, Ratanoid main, Image imageBarra, Image imagePelota, ImageView fondo, Label lvlText) {
         this.gc = gc;
@@ -68,7 +67,7 @@ public class Niveles {
         this.imagePelota = imagePelota;
 
         this.scoreText = scoreText;
-        this.vida = vida;
+        this.vidaImage = vida;
         this.main = main;
         this.fondo = fondo;
         this.lvlText = lvlText;
@@ -130,14 +129,19 @@ public class Niveles {
         barra = new Barra(imageBarra);
         barra.render(gc);
 
-        pelota = new Pelota(imagePelota) {
-            @Override
-            public void move(String toString) {
+        if (pelota != null){
+            pelota.clear(gc);
+            pelota = null;
+        }
+            pelota = new Pelota(imagePelota) {
+                @Override
+                public void move(String toString) {
 
-            }
-        };
+                }
+            };
+
         setScore();
-        pelota.setVida(vida);
+        setVida(vidas);
         pelota.setMain(main);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -220,7 +224,7 @@ public class Niveles {
             }
         };
         setScore();
-        pelota.setVida(vida);
+        setVida(vidas);
         pelota.setMain(main);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -303,7 +307,7 @@ public class Niveles {
             }
         };
         setScore();
-        pelota.setVida(vida);
+        setVida(vidas);
         pelota.setMain(main);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -544,6 +548,7 @@ public class Niveles {
                     timeline.stop();
                     try {
                         main.gameOver();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -562,5 +567,26 @@ public class Niveles {
         lvlText.setTextFill(Color.web("White"));
         lvlText.setAlignment(Pos.CENTER);
         lvlText.setText(lvl);
+    }
+    public static void setVida(int vida) {
+        vidas = vida;
+        switch (vidas) {
+            case 3:
+                vidaImage.setImage(new Image(Ratanoid.class.getResource("drawable/3vidas.png").toExternalForm()));
+                break;
+            case 2:
+                vidaImage.setImage(new Image(Ratanoid.class.getResource("drawable/2vidas.png").toExternalForm()));
+                break;
+            case 1:
+                vidaImage.setImage(new Image(Ratanoid.class.getResource("drawable/1vidas.png").toExternalForm()));
+                break;
+            case 0:
+                try {
+                    main.gameOver();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
     }
 }

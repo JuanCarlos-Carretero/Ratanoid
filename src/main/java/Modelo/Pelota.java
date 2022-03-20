@@ -55,8 +55,9 @@ public abstract class Pelota extends Sprite {
             if (dirY == 1) {
                 setY(getY() + velY);
                 if (getY() >= 600) {
-                        Niveles.vidas--;
-                        setVida(vidas);
+                    int vidas = Niveles.vidas;
+                    vidas--;
+                        Niveles.setVida(vidas);
 
                         setX(240);
                         setY(563);
@@ -71,28 +72,6 @@ public abstract class Pelota extends Sprite {
                 setY(getY() - velY);
                 if (getY() <= 0) dirY = (-1) * dirY;
             }
-        }
-    }
-
-    public void setVida(ImageView vida) {
-        this.vidas = vida;
-        switch (Niveles.vidas) {
-            case 3:
-                vidas.setImage(new Image(Ratanoid.class.getResource("drawable/3vidas.png").toExternalForm()));
-                break;
-            case 2:
-                vidas.setImage(new Image(Ratanoid.class.getResource("drawable/2vidas.png").toExternalForm()));
-                break;
-            case 1:
-                vidas.setImage(new Image(Ratanoid.class.getResource("drawable/1vidas.png").toExternalForm()));
-                break;
-            case 0:
-                try {
-                    main.gameOver();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            break;
         }
     }
     public void cambiarDireccion(){
