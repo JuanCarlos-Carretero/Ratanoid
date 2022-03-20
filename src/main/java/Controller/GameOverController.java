@@ -9,11 +9,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOverController {
-
+public class GameOverController implements Initializable {
 
     private Ratanoid main;
-    List<Pelota> pelotasABorrar = new ArrayList<>();
+    private List<Jugador> jugadores;
+
+    @FXML
+    Label score1, score2, score3, score4, score5, tuScore;
+    List<Jugador> scoreCopia;
+    List<Jugador> scoreOrdenado = new ArrayList<>();
+    Jugador scoreGuard;
+
+    int cont;
 
     public GameOverController(){
 

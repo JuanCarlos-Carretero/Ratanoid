@@ -63,9 +63,4 @@ public class Ratanoid extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    public void restart() throws IOException{
-        primaryStage.close();
-        startGame();
-    }
 }

@@ -5,7 +5,6 @@ import java.net.Socket;
 
 public class ThreadSevidorObjJugador implements Runnable{
 
-    private Socket clientSocket;
     private OutputStream os;
     private ObjectOutputStream output;
     private InputStream is;
@@ -15,7 +14,7 @@ public class ThreadSevidorObjJugador implements Runnable{
 
 
     public ThreadSevidorObjJugador(Socket clientSocket) {
-        this.clientSocket = clientSocket;
+
         archivo = new Archivo();
         try {
             is = clientSocket.getInputStream();
@@ -39,7 +38,7 @@ public class ThreadSevidorObjJugador implements Runnable{
                 //comprobamos lo que recibe el servidor
                 System.out.println(jugador.apodo + " " + jugador.puntuacion);
 
-                archivo.Escribir(jugador, file);
+                archivo.Escribir(jugadores, file);
 
                 //tornem la llista al client per l'output
                 output.writeObject(archivo.Leer(file));

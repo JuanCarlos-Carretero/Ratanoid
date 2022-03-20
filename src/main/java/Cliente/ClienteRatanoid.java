@@ -42,9 +42,6 @@ public class ClienteRatanoid extends Thread {
     public void LlamarServidor(String nombre, int puntuacion){
         this.nombre = nombre;
         this.puntuacion = puntuacion;
-        /*ClienteRatanoid clientObjLlista = new ClienteRatanoid("localhost", 5557);*/
-        ClienteRatanoid clientObjLlista = new ClienteRatanoid(hostname, port);
-        clientObjLlista.start();
     }
 
     @Override

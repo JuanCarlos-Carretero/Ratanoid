@@ -18,7 +18,7 @@ public class Archivo {
      * @param jugadores Recibe una lista con la cual va a trabajar para escribir en el csv
      * @param file      Recibe un file con el cual va a trabajar a la hora de borrar el archivo o a la g¡hora de crear/escribir dentro de el.
      */
-    public void Escribir(Jugador jugadores, File file) {
+    public void Escribir(List<Jugador> jugadores, File file) {
         CSVWriter csvWriter;
         String[] score = new String[2];
         file.delete();

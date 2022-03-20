@@ -29,6 +29,7 @@ public class Lvl1 {
     static public List<Ladrillo> ladrillos = new ArrayList<>();
     Image image;
     Image imageBarra;
+    Image imagePelota;
     public static Barra barra;
     public static Pelotas pelotas;
     Pelota pelota;

@@ -38,6 +38,11 @@ public class StartGameController implements Initializable {
     @FXML
     Label scoreText;
 
+    @FXML
+    Label lvlText;
+
+    private Image barra,pelota;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(url);

@@ -4,7 +4,8 @@ import com.example.ratanoid.Ratanoid;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,6 +22,10 @@ public class PantallaMenuController implements Initializable {
     @FXML
     private ImageView logo;
 
+    @FXML
+    private TextField enterName;
+
+    public static String nombre;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -28,6 +33,7 @@ public class PantallaMenuController implements Initializable {
     }
 
     public void startGame() {
+        nombre = enterName.getText();
         try {
             main.startGame();
 
@@ -37,6 +43,7 @@ public class PantallaMenuController implements Initializable {
     }
 
     public void skins() {
+        nombre = enterName.getText();
         try {
             main.skins();
         } catch (IOException e) {
