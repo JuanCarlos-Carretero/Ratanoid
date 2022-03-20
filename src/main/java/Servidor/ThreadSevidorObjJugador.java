@@ -34,7 +34,7 @@ public class ThreadSevidorObjJugador implements Runnable{
 
     @Override
     public void run() {
-        File file = new File("C:\\Users\\jbm19\\IdeaProjects\\Ratanoid\\src\\main\\java\\Servidor\\src\\Score.csv");
+        File file = new File("src/main/java/Servidor/src/Score.csv");
         try {
             while (!acabat) {
                 jugadores = archivo.Leer(file);
