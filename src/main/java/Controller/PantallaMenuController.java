@@ -4,6 +4,7 @@ import com.example.ratanoid.Ratanoid;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,8 +36,15 @@ public class PantallaMenuController implements Initializable {
     public void startGame() {
         nombre = enterName.getText();
         try {
-            main.startGame(0, 0);
-
+            if(!nombre.equals("")){
+                main.startGame(0, 0);
+            }else{
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Error");
+                a.setHeaderText("0xc0000005");
+                a.setContentText("Introduce un nombre!");
+                a.show();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,7 +53,15 @@ public class PantallaMenuController implements Initializable {
     public void skins() {
         nombre = enterName.getText();
         try {
-            main.skins();
+            if(!nombre.equals("")) {
+                main.skins();
+            }else{
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("Error");
+                a.setHeaderText("0xc0000005");
+                a.setContentText("Introduce un nombre!");
+                a.show();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

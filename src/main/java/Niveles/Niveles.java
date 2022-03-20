@@ -290,11 +290,11 @@ public class Niveles {
 
             }
         }
-        /*barra.clear(gc);*/
+        barra.clear(gc);
         barra = new Barra(imageBarra);
         barra.render(gc);
 
-        /*pelota.clear(gc);*/
+        pelota.clear(gc);
         pelota = new Pelota(imagePelota) {
             @Override
             public void move(String toString) {

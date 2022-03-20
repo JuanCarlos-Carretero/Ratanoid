@@ -24,6 +24,10 @@ public class Ratanoid extends Application {
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
         primaryStage.setTitle("Ratanoid");
+        primaryStage.setMaxHeight(636);
+        primaryStage.setMaxWidth(517);
+        primaryStage.setMinHeight(636);
+        primaryStage.setMinWidth(517);
 
         pantallaMenu();
     }

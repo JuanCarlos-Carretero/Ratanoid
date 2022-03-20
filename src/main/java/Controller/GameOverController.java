@@ -69,7 +69,6 @@ public class GameOverController implements Initializable {
             for (int i = 1; i < scoreCopia.size(); i++) {
                 if (scoreGuard.getPuntuacion() <= scoreCopia.get(i).getPuntuacion()) {
                     scoreGuard = scoreCopia.get(i);
-                    System.out.println(scoreCopia.get(i).getPuntuacion() +  " " + scoreCopia.get(i).getApodo());
                 }
             }
             scoreOrdenado.add(scoreGuard);

@@ -64,8 +64,8 @@ public class ClienteRatanoid extends Thread {
                 output.writeObject(jugador);
                 output.flush();
 
-                setJugadores((List<Jugador>) input.readObject());
-
+                jugadores = (List<Jugador>) input.readObject();
+                setJugadores(jugadores);
                 acabat = true;
             }
         } catch (IOException | ClassNotFoundException e) {
