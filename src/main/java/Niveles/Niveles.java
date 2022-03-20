@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -525,6 +526,7 @@ public class Niveles {
             if (ladrillosLvl1.size() == 0){
                 if (lvlEjecutado == 1) {
                     Lvl2();
+                    start = false;
                 }
             }
 
@@ -532,13 +534,18 @@ public class Niveles {
             if (ladrillosLvl2.size() == 0){
                 if(lvlEjecutado == 2){
                     Lvl3();
+                    start = false;
                 }
             }
 
             //Si ya no hay ladrillos en el lvl3 pon pantalla win
             if (ladrillosLvl2.size() == 0){
                 if(lvlEjecutado == 3){
-                    //mostrar pantalla has ganado :-)
+                    try {
+                        main.gameOver();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
