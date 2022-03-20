@@ -2,6 +2,8 @@ package Servidor;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ThreadSevidorObjJugador implements Runnable{
 
@@ -11,6 +13,8 @@ public class ThreadSevidorObjJugador implements Runnable{
     private ObjectInputStream input;
     private boolean acabat = false;
     Archivo archivo;
+
+    List<Jugador> jugadores = new ArrayList<>();
 
 
     public ThreadSevidorObjJugador(Socket clientSocket) {
@@ -32,8 +36,10 @@ public class ThreadSevidorObjJugador implements Runnable{
         File file = new File("/home/jkarka/IdeaProjects/Ratanoid/src/main/java/Servidor/src/Score.csv");
         try {
             while (!acabat) {
+                jugadores = archivo.Leer(file);
                 //LLegim l'objecte Jugador del stream input
                 Jugador jugador = (Jugador) input.readObject();
+                jugadores.add(jugador);
 
                 //comprobamos lo que recibe el servidor
                 System.out.println(jugador.apodo + " " + jugador.puntuacion);
@@ -58,7 +64,6 @@ public class ThreadSevidorObjJugador implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }

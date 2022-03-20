@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SkinMenuController">
+<Pane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SkinMenuController">
    <children>
       <ImageView fx:id="fondo" fitHeight="670.0" fitWidth="600.0" layoutX="-1.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@drawable/PantallaMenu.png" />
+         </image></ImageView>
+      <ImageView fitHeight="157.0" fitWidth="406.0" layoutX="35.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@drawable/elegirbola.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="logo2" fitHeight="87.0" fitWidth="227.0" layoutX="229.0" layoutY="514.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="157.0" fitWidth="406.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@drawable/eligetubarra.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="logo2" fitHeight="87.0" fitWidth="227.0" layoutX="272.0" layoutY="514.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@drawable/start.png" />
          </image>
@@ -22,35 +31,17 @@
             <Image url="@drawable/return.png" />
          </image>
       </ImageView>
-      <Group layoutX="26.0" layoutY="7.0">
-         <children>
-            <ChoiceBox layoutX="242.0" layoutY="124.0" prefWidth="150.0" />
-            <ImageView fitHeight="157.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@drawable/eligetubarra.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="elegirBarra" fitHeight="103.0" fitWidth="188.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@drawable/barraBuena.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
-      <Group layoutX="33.0" layoutY="235.0">
-         <children>
-            <ChoiceBox layoutX="243.0" layoutY="93.0" prefWidth="150.0" />
-            <ImageView fitHeight="157.0" fitWidth="406.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@drawable/elegirbola.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="elegirBola" fitHeight="80.0" fitWidth="72.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@drawable/bolablanca.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Group>
+      <ChoiceBox fx:id="elegirBarra" layoutX="277.0" layoutY="117.0" prefWidth="150.0" />
+      <ImageView fx:id="barraSkin" fitHeight="103.0" fitWidth="188.0" layoutX="56.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@drawable/barraBuena.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="elegirPelota" layoutX="277.0" layoutY="323.0" prefWidth="150.0" />
+      <ImageView fx:id="pelotaSkin" fitHeight="80.0" fitWidth="72.0" layoutX="114.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@drawable/bolablanca.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

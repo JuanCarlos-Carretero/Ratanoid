@@ -16,7 +16,7 @@ public class SkinMenuController implements Initializable {
     private Ratanoid main;
 
     @FXML
-    private ImageView elegirBarra;
+    private ImageView barraSkin;
     @FXML
     private ImageView pelotaSkin;
 
@@ -115,11 +115,7 @@ public class SkinMenuController implements Initializable {
         }
     }
 
-    public void startGame() {
-        try {
-            main.startGame();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void setMain(Ratanoid mainApp) {
+        this.main = mainApp;
     }
 }

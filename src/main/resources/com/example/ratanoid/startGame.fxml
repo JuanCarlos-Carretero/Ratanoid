@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartGameController">
+<AnchorPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartGameController">
     <children>
-        <ImageView fx:id="imvBgd1" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="ImagenFondo" pickOnBounds="true" preserveRatio="true" />
         <Canvas fx:id="mainCanvas" />
       <ImageView fx:id="vidas" fitHeight="40.0" fitWidth="140.0" layoutX="346.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="scoreText" layoutX="14.0" layoutY="14.0" prefHeight="65.0" prefWidth="266.0" />
+      <Label fx:id="scoreText" layoutX="12.0" layoutY="-5.0" prefHeight="65.0" prefWidth="266.0" />
+      <Label fx:id="lvlText" layoutX="178.0" layoutY="7.0" prefHeight="47.0" prefWidth="157.0" />
     </children>
 </AnchorPane>

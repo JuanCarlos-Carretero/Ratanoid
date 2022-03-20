@@ -1,18 +1,12 @@
 package Modelo;
 
-import Controller.StartGameController;
-import Niveles.Lvl1;
+import Niveles.Niveles;
 import com.example.ratanoid.Ratanoid;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Pelota extends Sprite {
     private double velX, velY;
@@ -26,12 +20,10 @@ public abstract class Pelota extends Sprite {
         this.dirY = dirY;
     }
 
-    int punto = 0;
     Ratanoid main;
     public boolean gameOver;
 
     private int dirX, dirY;
-    List<Ladrillo> ladrilloAEliminar = new ArrayList<>();
 
     public Pelota(Image image) {
         super(image);
@@ -51,7 +43,7 @@ public abstract class Pelota extends Sprite {
      */
     public void move() {
 
-        if (Lvl1.start) {
+        if (Niveles.start) {
             //Paredes
             if (dirX == 1) {
                 setX(getX() + velX);
@@ -63,54 +55,28 @@ public abstract class Pelota extends Sprite {
             if (dirY == 1) {
                 setY(getY() + velY);
                 if (getY() >= 600) {
-                        Lvl1.vidas--;
+                        Niveles.vidas--;
                         setVida(vidas);
 
                         setX(240);
                         setY(563);
 
-                        Lvl1.barra.clear(Lvl1.gc);
-                        Lvl1.barra.setX(210);
-                        Lvl1.barra.render(Lvl1.gc);
+                        Niveles.barra.clear(Niveles.gc);
+                        Niveles.barra.setX(210);
+                        Niveles.barra.render(Niveles.gc);
 
-                        Lvl1.start = false;
-
+                        Niveles.start = false;
                 }
             } else {
                 setY(getY() - velY);
                 if (getY() <= 0) dirY = (-1) * dirY;
             }
-
-            //Ladrillos
-            for (Ladrillo ladrillo : Lvl1.ladrillos) {
-                if (ladrillo.getBoundary().intersects(getBoundary())) {
-                    setX(getX() + velX);
-                    setY(getY() + velY);
-                    dirY = (-1) * dirY;
-                    ladrillo.clear(Lvl1.gc);
-                    ladrilloAEliminar.add(ladrillo);
-                    punto++;
-                    setScore(scoreText);
-                }
-            }
-
-            for (Ladrillo ladrillo : ladrilloAEliminar) {
-                Lvl1.ladrillos.remove(ladrillo);
-            }
-            ladrilloAEliminar.clear();
         }
-    }
-
-    public void setScore(Label scoreText) {
-        this.scoreText = scoreText;
-        scoreText.setFont(Font.font("Times New Roman", 25));
-        scoreText.setTextFill(Color.web("White"));
-        scoreText.setText("Puntos: " + 100 * punto);
     }
 
     public void setVida(ImageView vida) {
         this.vidas = vida;
-        switch (Lvl1.vidas) {
+        switch (Niveles.vidas) {
             case 3:
                 vidas.setImage(new Image(Ratanoid.class.getResource("drawable/3vidas.png").toExternalForm()));
                 break;
@@ -129,10 +95,12 @@ public abstract class Pelota extends Sprite {
             break;
         }
     }
+    public void cambiarDireccion(){
+        setX(getX() + velX);
+        setY(getY() + velY);
+        dirY = (-1) * dirY;
+    }
     public void setMain(Ratanoid main){
         this.main = main;
-    }
-    public void setGc(GraphicsContext gc){
-        this.gc = gc;
     }
 }

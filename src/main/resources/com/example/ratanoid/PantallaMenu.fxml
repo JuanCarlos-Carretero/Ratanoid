@@ -9,7 +9,7 @@
       <ImageView fx:id="fondo" fitHeight="670.0" fitWidth="600.0" layoutX="-1.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="logo" fitHeight="163.0" fitWidth="366.0" layoutX="67.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@drawable/titulo_naranja.png" />
+            <Image url="@drawable/titulo_2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="logo1" fitHeight="88.0" fitWidth="223.0" layoutX="139.0" layoutY="335.0" onMouseClicked="#startGame" pickOnBounds="true" preserveRatio="true">

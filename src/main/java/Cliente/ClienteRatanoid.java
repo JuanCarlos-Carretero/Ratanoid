@@ -18,6 +18,8 @@ public class ClienteRatanoid extends Thread {
     private ObjectOutputStream output;
     private ObjectInputStream input;
 
+
+
     List<Jugador> jugadores = new ArrayList<>();
     Jugador jugador;
 
@@ -26,8 +28,9 @@ public class ClienteRatanoid extends Thread {
 
     /**
      * Metodo constructor para crar la clase
-     * @param hostname  variable que nos dara acceso al servidor ("localhost")
-     * @param port  variable que nos dara acceso al servidor ("5557")
+     *
+     * @param hostname variable que nos dara acceso al servidor ("localhost")
+     * @param port     variable que nos dara acceso al servidor ("5557")
      */
     public ClienteRatanoid(String hostname, int port) {
         this.hostname = hostname;
@@ -36,10 +39,11 @@ public class ClienteRatanoid extends Thread {
 
     /**
      * Este metodo es llamado para usar el tcp
-     * @param nombre    esta variable sera el nombre del jugador
-     * @param puntuacion    esta variable sera la puntuacion del jugador
+     *
+     * @param nombre     esta variable sera el nombre del jugador
+     * @param puntuacion esta variable sera la puntuacion del jugador
      */
-    public void LlamarServidor(String nombre, int puntuacion){
+    public void LlamarServidor(String nombre, int puntuacion) {
         this.nombre = nombre;
         this.puntuacion = puntuacion;
     }
@@ -60,8 +64,8 @@ public class ClienteRatanoid extends Thread {
                 output.writeObject(jugador);
                 output.flush();
 
-                jugadores = (List<Jugador>) input.readObject();
-                System.out.println(jugador.getApodo() + " " + jugador.getPuntuacion());
+                setJugadores((List<Jugador>) input.readObject());
+
                 acabat = true;
             }
         } catch (IOException | ClassNotFoundException e) {
@@ -78,8 +82,11 @@ public class ClienteRatanoid extends Thread {
         }
     }
 
-    /*public static void main(String[] args) {
-        ClienteRatanoid clientObjLlista = new ClienteRatanoid("localhost", 5557);
-        clientObjLlista.start();
-    }*/
+    public List<Jugador> getListado() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
 }

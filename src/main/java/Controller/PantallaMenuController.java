@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PantallaMenuController implements Initializable {
+
     private Ratanoid main;
 
     @FXML
@@ -34,7 +35,7 @@ public class PantallaMenuController implements Initializable {
     public void startGame() {
         nombre = enterName.getText();
         try {
-            main.startGame();
+            main.startGame(0, 0);
 
         } catch (IOException e) {
             e.printStackTrace();

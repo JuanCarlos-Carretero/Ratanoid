@@ -7,7 +7,6 @@ module com.example.ratanoid {
 
     opens com.example.ratanoid to javafx.fxml;
     exports com.example.ratanoid;
-    exports Pruebas;
     exports Controller;
     opens Controller to javafx.fxml;
     exports Modelo;

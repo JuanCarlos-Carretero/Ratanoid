@@ -7,6 +7,7 @@ import Controller.StartGameController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,10 +37,11 @@ public class Ratanoid extends Application {
         primaryStage.show();
     }
 
-    public void startGame() throws IOException {
+    public void startGame(int barraSkin, int pelotaSkin) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Ratanoid.class.getResource("startGame.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
         StartGameController controllerStart = fxmlLoader.getController();
+        controllerStart.setSkins(barraSkin, pelotaSkin);
         controllerStart.setMain(this);
         controllerStart.setScene(scene);
         primaryStage.setScene(scene);

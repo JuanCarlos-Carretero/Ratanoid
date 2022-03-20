@@ -20,21 +20,20 @@ public class Archivo {
      */
     public void Escribir(List<Jugador> jugadores, File file) {
         CSVWriter csvWriter;
-        String[] score = new String[2];
-        file.delete();
+        List<String[]> data = new ArrayList<>();
 
-        score[0] = jugadores.getApodo();
-        score[1] = String.valueOf(jugadores.getPuntuacion());
+        for (Jugador jugador:jugadores) {
+                data.add(new String[] {jugador.getApodo(),String.valueOf(jugador.getPuntuacion())});
+        }
 
         try {
             csvWriter = new CSVWriter(new FileWriter(file));
-            csvWriter.writeNext((String[]) score);
+            csvWriter.writeAll(data);
             csvWriter.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         System.out.println("Ruta del archivo " + file.getPath());
     }
 
@@ -48,9 +47,10 @@ public class Archivo {
                 String apodo = scanner.next();
                 String puntuacion = scanner.next();
 
-                int n = Integer.parseInt(puntuacion.substring(2, puntuacion.length() - 2));
+                String nombre = apodo.substring(1, apodo.length() - 1);
+                int n = Integer.parseInt(puntuacion.substring(1, puntuacion.length() - 1));
 
-                scoreList.add(new Jugador(apodo, n));
+                scoreList.add(new Jugador(nombre, n));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
