@@ -539,7 +539,7 @@ public class Niveles {
             }
 
             //Si ya no hay ladrillos en el lvl3 pon pantalla win
-            if (ladrillosLvl2.size() == 0){
+            if (ladrillosLvl3.size() == 0){
                 if(lvlEjecutado == 3){
                     try {
                         main.gameOver();
