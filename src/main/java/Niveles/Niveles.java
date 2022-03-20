@@ -525,16 +525,16 @@ public class Niveles {
             //Si ya no hay ladrillos en el lvl1 pon el lvl2
             if (ladrillosLvl1.size() == 0){
                 if (lvlEjecutado == 1) {
-                    Lvl2();
                     start = false;
+                    Lvl2();
                 }
             }
 
             //Si ya no hay ladrillos en el lvl2 pon el lvl3
             if (ladrillosLvl2.size() == 0){
                 if(lvlEjecutado == 2){
-                    Lvl3();
                     start = false;
+                    Lvl3();
                 }
             }
 
